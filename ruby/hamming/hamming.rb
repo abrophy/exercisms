@@ -1,7 +1,13 @@
+module BookKeeping
+  VERSION = 3
+end
+
 class Hamming
   def self.compute(strand_a, strand_b)
-    array_a = strand_a.split(',')
-    array_b = strand_b.split(',')
+    raise ArgumentError.new("Sequence lengths differ") if strand_a.length != strand_b.length
+
+    array_a = strand_a.split('')
+    array_b = strand_b.split('')
 
     hamming = 0
 
