@@ -12,14 +12,12 @@ class Pangram
 
     @alphabet = ('a'..'z').to_a
     @string_as_array = string.downcase.split('')
-    puts @string_as_array
     @new_array = []
     @alphabet.each do |item|
-      if @string_as_array.index item != nil
-        puts "FOUND IT"
+      if @string_as_array.index(item) != nil
+        # not reaching this point correctly
         @new_array.push "found"
       else
-        puts "DIDINT FIND IT"
         @new_array.push item
       end
     end
