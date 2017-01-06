@@ -23,7 +23,9 @@ class Fixnum
         puts how_many.inspect
         puts item[1].inspect
         puts result_string.inspect
-        result_string += (how_many * item[1])
+        how_many.times do
+          result_string += item[1]
+        end
         running_value -= how_many * item[0]
 
         puts running_value
