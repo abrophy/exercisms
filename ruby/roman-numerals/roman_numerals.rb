@@ -38,8 +38,8 @@ class Fixnum
 
         unless item[0] == 1
           if running_value >= (item[0] - numerals[index + 1][0])
-            result_string += numerals[index+1][0] + item[0]
-            running_value -= item[1] - numerals[index+1][1]
+            result_string += numerals[index+1][1] + item[1]
+            running_value -= item[0] - numerals[index+1][0]
           end
         end
       end
