@@ -4,10 +4,10 @@ end
 
 class Robot
 
-  attr_accessor :actual_name, :used_names
+  attr_accessor :current_name, :used_names
 
   def initialize(name = "")
-    self.actual_name = name
+    self.current_name = name
     self.used_names = []
     if name.length > 0
       self.used_names.push(name)
@@ -15,8 +15,8 @@ class Robot
   end
 
   def name
-    if self.actual_name.length > 0
-      self.actual_name
+    if self.current_name.length > 0
+      self.current_name
     else
       inner_name = generate_name
 
@@ -24,7 +24,7 @@ class Robot
         self.name
       else
         self.used_names.push(inner_name)
-        self.actual_name = inner_name
+        self.current_name = inner_name
         inner_name
       end
     end
