@@ -4,21 +4,29 @@ end
 
 class Robot
 
-  attr_accessor :name, :used_names
+  attr_accessor :actual_name, :used_names
 
-  def initialize
-    self.name = ""
+  def initialize(name = "")
+    self.actual_name = name
     self.used_names = []
+    if name.length > 0
+      self.used_names.push(name)
+    end
   end
 
   def name
-    name = generate_name
-    if self.used_names.index(name) != nil && self.used_names.index(name) > 0
-      self.name
+    if self.actual_name.length > 0
+      self.actual_name
     else
-      self.used_names.push(name)
-      self.name = name
-      name
+      inner_name = generate_name
+
+      if self.used_names.index(inner_name) != nil && self.used_names.index(inner_name) > 0
+        self.name
+      else
+        self.used_names.push(inner_name)
+        self.actual_name = inner_name
+        inner_name
+      end
     end
   end
 
